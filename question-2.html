@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Is My Site Coming from California? | Cloudflare Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Why Is My Site Coming from California?</h1>
+
+    <h2>Customer question</h2>
+
+    <blockquote>
+        My visitor is in London, but my website's IP address
+        appears to be in California. Why?
+    </blockquote>
+
+    <h2>Customer-facing response</h2>
+
+    <p>Hello,</p>
+
+    <p>
+        I understand why this looks concerning. Cloudflare uses
+        a network technology called Anycast, which allows the
+        same IP address to be announced from multiple locations.
+        Internet routing directs a visitor's traffic to an
+        appropriate available Cloudflare data centre.
+    </p>
+
+    <p>
+        An IP geolocation database may label an IP address as
+        being in California even when your visitor's traffic is
+        being handled by a Cloudflare data centre much closer
+        to London. The location shown by an IP lookup does not
+        necessarily identify the data centre serving your request.
+    </p>
+
+    <p>
+        We can investigate using the CF-Ray response header,
+        which includes a code identifying the Cloudflare data
+        centre that handled the request. We can also compare
+        test results and review available traffic analytics.
+    </p>
+
+    <p>
+        If you share the affected URL and the response headers,
+        we can help determine which Cloudflare location handled
+        the request and investigate any performance concerns.
+    </p>
+
+    <p>Kind regards,<br>Cloudflare Support</p>
+
+    <h2>Troubleshooting rationale</h2>
+
+    <p>
+        Anycast allows the same IP address to be advertised from
+        multiple locations. IP geolocation databases can be
+        inaccurate or outdated, so an IP address labelled as
+        Californian does not prove that the request was served
+        from California.
+    </p>
+
+    <h2>Tools used and why</h2>
+
+    <ul>
+        <li><strong>curl:</strong> Inspect HTTP response headers.</li>
+        <li><strong>CF-Ray:</strong> Identify the Cloudflare data centre code in the response.</li>
+        <li><strong>Cloudflare Analytics:</strong> Review available traffic and performance information.</li>
+    </ul>
+
+    <p><a href="index.html">Back to the homepage</a></p>
+</body>
+</html>
+

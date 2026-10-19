@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Is My Content Not Being Cached? | Cloudflare Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Why Is My Content Not Being Cached?</h1>
+
+    <h2>Customer question</h2>
+
+    <blockquote>
+        My website's response headers include Cache-Control:
+        no-store, no-cache, must-revalidate, max-age=0.
+        Why isn't Cloudflare caching my content?
+    </blockquote>
+
+    <h2>Customer-facing response</h2>
+
+    <p>Hello,</p>
+
+    <p>
+        Thank you for sharing your response headers. The
+        Cache-Control header you provided is a strong clue
+        as to why the content may not be cached.
+    </p>
+
+    <p>
+        In particular, no-store tells caches not to store the
+        response, while no-cache means a stored response must
+        be revalidated before it is reused. The other directives
+        also indicate that the response should not be treated
+        as fresh for normal reuse.
+    </p>
+
+    <p>
+        We should first confirm which response is being returned
+        and whether the content is eligible for caching. HTML
+        content is not necessarily cached by default, and the
+        origin server's Cache-Control headers can affect
+        Cloudflare's caching behaviour.
+    </p>
+
+    <p>
+        If the content is public and safe to cache, you can
+        review the origin's cache headers and configure suitable
+        Cloudflare Cache Rules or an appropriate Edge TTL.
+        After making changes, test the response headers again
+        and check the CF-Cache-Status header to understand
+        whether the response was served from cache.
+    </p>
+
+    <p>
+        Please avoid caching private, personalised, or sensitive
+        responses unless the configuration explicitly protects
+        that content from being shared between users.
+    </p>
+
+    <p>Kind regards,<br>Cloudflare Support</p>
+
+    <h2>Troubleshooting rationale</h2>
+
+    <p>
+        The Cache-Control directives shown in the question
+        indicate that the origin is instructing caches not to
+        store or normally reuse the response. We need to verify
+        the complete response and cache configuration before
+        recommending changes.
+    </p>
+
+    <h2>Tools used and why</h2>
+
+    <ul>
+        <li><strong>curl -I:</strong> Inspect HTTP response headers.</li>
+        <li><strong>CF-Cache-Status:</strong> Check the reported cache outcome.</li>
+        <li><strong>Cloudflare Cache Rules:</strong> Review cache eligibility and edge TTL settings.</li>
+    </ul>
+
+    <p><a href="index.html">Back to the homepage</a></p>
+</body>
+</html>
+

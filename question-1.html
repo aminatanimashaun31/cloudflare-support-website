@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are Your Nameservers Down? | Cloudflare Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Are Your Nameservers Down?</h1>
+
+    <p><strong>Customer question:</strong></p>
+
+    <blockquote>
+        I cannot access my website from different networks.
+        Are your nameservers down?
+    </blockquote>
+
+    <h2>Customer-facing response</h2>
+
+    <p>Hello,</p>
+
+    <p>
+        I'm sorry you're having trouble accessing your website.
+        A website being unreachable does not necessarily mean
+        that its nameservers are down. Let's investigate the
+        DNS configuration and the website's origin server.
+    </p>
+
+    <p>
+        First, we should check whether the domain delegates to
+        the expected authoritative nameservers and whether those
+        servers return the correct DNS records. We should also
+        check for DNSSEC errors, the Cloudflare status page,
+        and whether the origin server is reachable.
+    </p>
+
+    <p>
+        Tools such as dig or nslookup can help verify DNS
+        responses. We can also use curl to test the website's
+        HTTP response.
+    </p>
+
+    <p>
+        Once we identify where the failure occurs, we can
+        recommend the appropriate fix. Please share the domain
+        name and any error messages so we can investigate further.
+    </p>
+
+    <p>Kind regards,<br>Cloudflare Support</p>
+
+    <h2>Troubleshooting rationale</h2>
+
+    <p>
+        We should not assume a nameserver outage based only on
+        a browser error. The issue could be related to DNS
+        delegation, DNSSEC, DNS records, the origin server,
+        or network connectivity.
+    </p>
+
+    <h2>Tools used and why</h2>
+
+    <ul>
+        <li><strong>dig / nslookup:</strong> Inspect DNS records and responses.</li>
+        <li><strong>Cloudflare Status:</strong> Check for reported service incidents.</li>
+        <li><strong>curl:</strong> Test HTTP connectivity and response headers.</li>
+    </ul>
+
+    <p><a href="index.html">Back to the homepage</a></p>
+</body>
+</html>
+

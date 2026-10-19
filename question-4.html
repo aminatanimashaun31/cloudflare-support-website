@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare Nameservers | Cloudflare Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>What Are Cloudflare Nameservers?</h1>
+
+    <h2>Customer question</h2>
+
+    <blockquote>
+        How are Cloudflare nameservers different from Google DNS
+        or OpenDNS? Can I use Cloudflare nameservers while
+        keeping my website hosted elsewhere?
+    </blockquote>
+
+    <h2>Customer-facing response</h2>
+
+    <p>Hello,</p>
+
+    <p>
+        Yes, you can generally keep your website hosted with
+        your existing hosting provider while using Cloudflare
+        for authoritative DNS.
+    </p>
+
+    <p>
+        Cloudflare authoritative nameservers hold and answer
+        DNS queries for the records configured for your domain.
+        Those records can point to a website hosted by another provider.
+    </p>
+
+    <p>
+        Google Public DNS and OpenDNS are commonly used as
+        recursive DNS resolvers. They look up DNS information
+        on behalf of users. This is different from the role of
+        authoritative nameservers assigned to your domain.
+    </p>
+
+    <p>
+        For a typical full Cloudflare setup, update the nameservers
+        at your domain registrar to the exact nameservers assigned
+        to your Cloudflare zone. Before switching, make sure the
+        required DNS records are present, including website and
+        email records that you need.
+    </p>
+
+    <p>
+        Your hosting provider does not have to change. If you want
+        to keep DNS hosted elsewhere, check whether a supported
+        partial or CNAME setup is available for your account.
+    </p>
+
+    <p>Kind regards,<br>Cloudflare Support</p>
+
+    <h2>Troubleshooting rationale</h2>
+
+    <p>
+        The key distinction is authoritative DNS versus recursive
+        DNS resolution. Changing authoritative nameservers changes
+        where a domain's DNS zone is managed; it does not
+        automatically move the website to another hosting provider.
+    </p>
+
+    <h2>Tools used and why</h2>
+
+    <ul>
+        <li><strong>Cloudflare Dashboard:</strong> Check assigned nameservers and DNS records.</li>
+        <li><strong>Domain registrar:</strong> Verify nameserver delegation.</li>
+        <li><strong>dig / nslookup:</strong> Check authoritative DNS responses.</li>
+    </ul>
+
+    <p><a href="index.html">Back to the homepage</a></p>
+</body>
+</html>
+

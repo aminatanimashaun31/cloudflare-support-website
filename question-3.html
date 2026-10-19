@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Is My Worker Not Applied? | Cloudflare Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Why Is My Worker Not Applied?</h1>
+
+    <h2>Customer question</h2>
+
+    <blockquote>
+        I added a Worker in the Cloudflare dashboard. It works
+        in the debugger, but it does not run when I visit my
+        website. Is there anything I need to activate?
+    </blockquote>
+
+    <h2>Customer-facing response</h2>
+
+    <p>Hello,</p>
+
+    <p>
+        I'm glad your Worker is working in the debugger.
+        The next step is to check that it is deployed and
+        configured to handle requests for your website.
+    </p>
+
+    <p>
+        First, confirm that the Worker has been deployed.
+        Then check that its route matches the URL you are
+        testing, including the hostname and path pattern.
+        For example, a route such as example.com/* matches
+        requests for paths on that hostname.
+    </p>
+
+    <p>
+        If the route uses a custom domain, verify that the
+        domain configuration is correct. If you are using a
+        route on a website hosted through Cloudflare, confirm
+        that the relevant DNS record is proxied through Cloudflare.
+    </p>
+
+    <p>
+        Also check the Worker logs and test the exact URL that
+        should trigger it. If the issue persists, please share
+        the Worker route pattern, deployment status, and a
+        sample URL so we can investigate further.
+    </p>
+
+    <p>Kind regards,<br>Cloudflare Support</p>
+
+    <h2>Troubleshooting rationale</h2>
+
+    <p>
+        The debugger tests Worker code, but it does not prove
+        that production requests match the deployed Worker.
+        A missing deployment, incorrect route, hostname or path
+        mismatch, or DNS proxy configuration can prevent the
+        Worker from handling the expected request.
+    </p>
+
+    <h2>Tools used and why</h2>
+
+    <ul>
+        <li><strong>Cloudflare Dashboard:</strong> Verify deployment and route configuration.</li>
+        <li><strong>Worker logs:</strong> Investigate requests and runtime errors.</li>
+        <li><strong>curl:</strong> Test the actual URL and inspect the response.</li>
+    </ul>
+
+    <p><a href="index.html">Back to the homepage</a></p>
+</body>
+</html>
+

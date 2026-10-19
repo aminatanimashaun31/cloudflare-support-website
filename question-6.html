@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Based on User Agent | Cloudflare Support</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Redirect Based on User Agent</h1>
+
+    <h2>Customer question</h2>
+
+    <blockquote>
+        I want to redirect visitors using Internet Explorer 8,
+        identified by a user agent containing MSIE 8.0.
+        Page Rules do not support this condition. Is there
+        another way?
+    </blockquote>
+
+    <h2>Customer-facing response</h2>
+
+    <p>Hello,</p>
+
+    <p>
+        Yes. A Cloudflare Worker can inspect the incoming
+        request's User-Agent header and return an HTTP redirect
+        when it matches your condition.
+    </p>
+
+    <p>
+        For example, the Worker can check whether the header
+        contains "MSIE 8.0". If it does, the Worker can return
+        a 302 temporary redirect to the destination you choose.
+        Otherwise, it can allow the request to continue.
+    </p>
+
+    <p>
+        To use this approach, deploy the Worker and configure
+        a route that matches the relevant website URL. Test it
+        with both matching and non-matching user agents before
+        applying it to production traffic.
+    </p>
+
+    <p>
+        Please note that user-agent strings can be changed or
+        spoofed by clients, so they should not be used as a
+        security control. A temporary redirect is useful while
+        testing; choose a permanent redirect only if that is
+        genuinely the intended behaviour.
+    </p>
+
+    <p>Kind regards,<br>Cloudflare Support</p>
+
+    <h2>Troubleshooting rationale</h2>
+
+    <p>
+        A Worker can evaluate request headers and apply custom
+        logic that may not be available in Page Rules. A route
+        must match the request, and the Worker must be deployed.
+        The user-agent value is not reliable proof of a browser's
+        actual identity.
+    </p>
+
+    <h2>Tools used and why</h2>
+
+    <ul>
+        <li><strong>Cloudflare Workers:</strong> Implement the conditional redirect.</li>
+        <li><strong>Worker logs:</strong> Investigate requests and runtime behaviour.</li>
+        <li><strong>curl:</strong> Test with different User-Agent headers and inspect redirect responses.</li>
+    </ul>
+
+    <p><a href="index.html">Back to the homepage</a></p>
+</body>
+</html>
+
